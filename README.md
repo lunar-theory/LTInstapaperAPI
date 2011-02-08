@@ -194,7 +194,7 @@ An example of how the `succeeded:` method above might be implemented:
                           forServiceName:@"Instapaper" updateExisting:YES error:&error];
         if (error == nil) {
             // All good. Save the username and return.
-            [[NSUserDefaults standardUserDefaults] setObject:usernameTextField.text forKey:self.usernameKey];
+            [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"InstapaperUsername"];
         } else {
             // Hrm, something went wrong. Try again.
             UIAlertView *alert = [[UIAlertView alloc]
