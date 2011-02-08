@@ -17,13 +17,13 @@ Instance Methods
 
 #### Paramaters ####
 
-*username*
+*username* -
 Email address or username to use to authenticate to Instapaper.
 
-*password*
+*password* -
 Password to use to authenticate to Instapaper. May be `nil`.
 
-*delegate*
+*delegate* -
 The delegate of the LTInstapaperAPI object.
 
 #### Discussion ####
@@ -47,7 +47,7 @@ delegate method will be called.
 
 #### Paramaters ####
 
-*url*
+*url* -
 String representation of the URL to be added to Instapaper.
 
 #### Discussion ####
@@ -62,10 +62,10 @@ called.
 
 #### Paramaters ####
 
-*url*
+*url* -
 String representation of the URL to be added to Instapaper.
 
-*title*
+*title* -
 Title to be associated with the URL.
 
 #### Discussion ####
@@ -80,13 +80,14 @@ delegate method will be called.
 
 #### Paramaters ####
 
-*url*
+*url* -
 String representation of the URL to be added to Instapaper.
 
-*title*
+*title* -
 Title to be associated with the URL.
 
-*selection* Text to be displayed as the description for the URL in the
+*selection* -
+Text to be displayed as the description for the URL in the
 Instapaper interface.
 
 #### Discussion ####
@@ -104,10 +105,10 @@ Delegate Methods
 
 #### Paramaters ####
 
-*instapaper*
+*instapaper* -
 Instance of LTInstapaperAPI that made the authentication API call.
 
-*code*
+*code* -
 The status code returned by the Instapaper API. As of this writing, the
 possible values are:
 
@@ -127,10 +128,10 @@ the user again. And if it's 500, suggest that they try again later.
 
 #### Paramaters ####
 
-*instapaper*
+*instapaper* -
 Instance of LTInstapaperAPI that made the authentication API call.
 
-*code*
+*code* -
 The status code returned by the Instapaper API. As of this writing, the
 possible values are:
 
