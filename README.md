@@ -1,11 +1,12 @@
 LTInstapaperAPI
 ===============
 
-This class provides a simple interface to the [Instapaper
-API](http://www.instapaper.com/api). It provides a method for each of the
-APIs, to which requests are sent asynchronously, and a delegate protocol is
-used to let the caller know when the requests have finished. It was developed
-for iOS, but may well work on Mac OS X, too. The only prerequisite is
+This class provides a simple interface to the [Instapaper Simple
+API](http://www.instapaper.com/api/simple). It provides a method for each of
+the APIs, to which requests are sent asynchronously, and a delegate protocol
+is used to let the caller know when the requests have finished. It was
+developed for iOS, but may well work on Mac OS X, too. The only prerequisite
+is
 [NSData+Base64](http://cocoawithlove.com/2009/06/base64-encoding-options-on-mac-and.html).
 
 Instance Methods
