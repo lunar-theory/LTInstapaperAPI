@@ -44,7 +44,7 @@
 @synthesize delegate, username, password, conn;
 
 - (id)initWithUsername:(NSString *)user password:(NSString *)pass delegate:(id<LTInstapaperAPIDelegate>)dgate {
-	if (self == [super init]) {
+	if (self = [super init]) {
         self.username = user;
         self.password = pass;
         self.delegate = dgate;
