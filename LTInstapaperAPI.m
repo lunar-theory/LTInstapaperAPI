@@ -79,7 +79,7 @@
 - (NSString *)urlEncodeString:(NSString *)string {
 	NSString* encoded = (NSString*) CFURLCreateStringByAddingPercentEscapes(
         kCFAllocatorDefault,
-        (CFStringRef) string,
+        (__bridge CFStringRef) string,
         NULL,
         CFSTR("!*'();:@&=+$,/?%#[]"),
         kCFStringEncodingUTF8
