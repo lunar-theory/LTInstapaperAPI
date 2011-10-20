@@ -33,16 +33,16 @@
 @protocol LTInstapaperAPIDelegate;
 
 @interface LTInstapaperAPI : NSObject {
-    id<LTInstapaperAPIDelegate> delegate;
+    id<LTInstapaperAPIDelegate> __unsafe_unretained delegate;
     NSString *username;
     NSString *password;
     NSURLConnection *conn;
     BOOL authenticating;
 }
 
-@property (nonatomic, assign) id<LTInstapaperAPIDelegate> delegate;
-@property (nonatomic, retain) NSString *username;
-@property (nonatomic, retain) NSString *password;
+@property (nonatomic, unsafe_unretained) id<LTInstapaperAPIDelegate> delegate;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
 
 - (id)initWithUsername:(NSString *)username password:(NSString *)password delegate:(id<LTInstapaperAPIDelegate>)delegate;
 - (void)authenticate;
