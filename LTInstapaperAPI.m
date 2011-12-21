@@ -35,7 +35,11 @@
 #define kAddURL  @"https://www.instapaper.com/api/add"
 
 @interface LTInstapaperAPI ()
+#if __has_feature(objc_arc)
 @property (nonatomic, strong) NSURLConnection *conn;
+#else
+@property (nonatomic, retain) NSURLConnection *conn;
+#endif
 - (NSMutableURLRequest *)requestForURL:(NSString *)url;
 @end
 
@@ -52,6 +56,14 @@
     return self;
 }
 
+#if !__has_feature(objc_arc)
+- (void)dealloc {
+    [username release];
+    [password release];
+    [conn release];
+    [super dealloc];
+}
+#endif
 
 - (void)authenticate {
     authenticating = YES;
@@ -71,7 +83,8 @@
 
 // This should perhaps be in a category on NSString.
 - (NSString *)urlEncodeString:(NSString *)string {
-	NSString* encoded = (__bridge_transfer NSString*) CFURLCreateStringByAddingPercentEscapes(
+#if __has_feature(objc_arc)
+	NSString *encoded = (__bridge_transfer NSString*) CFURLCreateStringByAddingPercentEscapes(
         kCFAllocatorDefault,
         (__bridge CFStringRef) string,
         NULL,
@@ -79,6 +92,16 @@
         kCFStringEncodingUTF8
     );
 	return encoded;
+#else
+    NSString *encoded = (NSString*) CFURLCreateStringByAddingPercentEscapes(
+        kCFAllocatorDefault,
+        (CFStringRef) string,
+        NULL,
+        CFSTR("!*'();:@&=+$,/?%#[]"),
+        kCFStringEncodingUTF8
+    );
+	return [encoded autorelease];
+#endif
 }
 
 - (void)addURL:(NSString *)url {
